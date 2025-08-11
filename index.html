@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방탈출 게임: 신비한 무지개 숲</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+    <img src="BGO1.jpg.jpg" alt="신비한 무지개 숲 배경" class="background-image">
+        
+        <!-- 클릭 가능한 오브젝트 -->
+        <div class="clickable-object" id="leopard-obj" style="top: 47%; left: 15%; width: 35%; height: 25%;"></div>
+        <div class="clickable-object" id="snake-obj" style="top: 40%; left: 65%; width: 25%; height: 20%;"></div>
+        <div class="clickable-object" id="rabbit-obj" style="top: 75%; left: 18%; width: 8%; height: 12%;"></div>
+        
+        <!-- 문 -->
+        <div id="door" class="locked">
+            <span>탈출구 (잠김)</span>
+        </div>
+
+        <!-- 게임 시작 모달 -->
+        <div id="start-modal" class="modal">
+            <div class="modal-content">
+                <h2>신비한 무지개 숲</h2>
+                <p>당신은 눈을 떠보니 한 번도 본 적 없는 신비한 숲 한가운데에 있습니다. 아름다운 무지개가 보이지만, 숲을 빠져나갈 문은 굳게 잠겨 있습니다. 문에는 네 자리 비밀번호를 입력하는 장치가 달려있습니다.</p>
+                <p>주변을 둘러보니 동물들이 당신을 지켜보고 있습니다. 어쩌면 저 동물들이 탈출할 수 있는 단서를 가지고 있을지도 모릅니다. 굳게 잠긴 문을 열고 이곳을 탈출하세요!</p>
+                <button id="start-game-btn">게임 시작</button>
+            </div>
+        </div>
+
+        <!-- 표범 게임 모달 -->
+        <div id="leopard-modal" class="modal">
+            <div class="modal-content">
+                <h3>날카로운 관찰력</h3>
+                <p>표범이 나뭇가지 위에서 편안하게 쉬고 있습니다. 이 그림에는 표범 외에 <strong>다른 척추동물</strong>이 총 몇 마리 더 있나요?</p>
+                <input type="number" id="leopard-answer" placeholder="숫자를 입력하세요">
+                <button id="leopard-submit">확인</button>
+            </div>
+        </div>
+
+        <!-- 보아뱀 게임 모달 -->
+        <div id="snake-modal" class="modal">
+            <div class="modal-content">
+                <h3>뱀의 식사</h3>
+                <p>저런! 보아뱀은 오늘 사냥에 실패해서 먹이를 <strong>하나도</strong> 먹지 못했습니다. 보아뱀이 오늘 먹은 먹이의 개수는 몇 개일까요?</p>
+                <input type="number" id="snake-answer" placeholder="숫자를 입력하세요">
+                <button id="snake-submit">확인</button>
+            </div>
+        </div>
+
+        <!-- 토끼 게임 모달 -->
+        <div id="rabbit-modal" class="modal">
+            <div class="modal-content">
+                <h3>토끼의 숫자 퀴즈</h3>
+                <p>아래의 퀴즈를 풀어 마지막 단서를 획득하세요!<br><strong>(이 숲에 있는 표범의 수) X (이 숲에 있는 토끼의 귀 개수) X (보아뱀의 다리 수) = ?</strong></p>
+                <input type="number" id="rabbit-answer" placeholder="숫자를 입력하세요">
+                <button id="rabbit-submit">확인</button>
+            </div>
+        </div>
+
+        <!-- 최종 비밀번호 모달 -->
+        <div id="door-modal" class="modal">
+            <div class="modal-content">
+                <h3>탈출구</h3>
+                <p>네 자리 비밀번호를 입력하세요.</p>
+                <input type="text" id="password-input" maxlength="4" placeholder="_ _ _ _">
+                <button id="password-submit">탈출</button>
+            </div>
+        </div>
+
+        <!-- 힌트 알림창 -->
+        <div id="hint-toast" class="toast"></div>
+
+        <!-- 획득한 비밀번호 표시 -->
+        <div id="password-display">
+            획득한 비밀번호: <span>_ _ _ _</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
